@@ -2,4 +2,20 @@ name = "toybox-edge"
 main = "src/index.ts"
 compatibility_date = "2022-11-26"
 
-route = "toybox-shadow.compositecomputer.club/*"
+routes = [
+  "toybox.compositecomputer.club/works/*",
+  "toybox.compositecomputer.club/users/*"
+]
+
+[vars]
+API_HOSTNAME = "https://kodomobeya.compositecomputer.club"
+
+[env.staging]
+workers_dev = true
+routes = [
+  "toybox-shadow.compositecomputer.club/works/*",
+  "toybox-shadow.compositecomputer.club/users/*"
+]
+
+[env.staging.vars]
+API_HOSTNAME = "https://kodomobeya.compositecomputer.club"
