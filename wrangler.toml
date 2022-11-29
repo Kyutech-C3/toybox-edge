@@ -2,4 +2,4 @@ name = "toybox-edge"
 main = "src/index.ts"
 compatibility_date = "2022-11-26"
 
-route = "toybox.compositecomputer.club/*"
+route = "toybox-shadow.compositecomputer.club/*"
