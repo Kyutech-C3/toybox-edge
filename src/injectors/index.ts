@@ -1,5 +1,6 @@
 import { Env } from "..";
 import { HTMLRewriterElementContentHandlers } from "@cloudflare/workers-types";
+import { trimDescription } from "../util/description_trim";
 
 export interface InjectorContext<EntityParams> {
   env: Env;
@@ -36,7 +37,8 @@ export function ogRewriteHandlerFactory(
           e.getAttribute("name") === "description") &&
         params.description
       ) {
-        e.setAttribute("content", params.description);
+        // OGPのdescriptionは長さとしては100~120文字にしたいため、それに合わせる
+        e.setAttribute("content", trimDescription(params.description));
         return;
       }
 
