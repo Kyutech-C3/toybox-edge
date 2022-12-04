@@ -31,8 +31,12 @@ export default {
     const originRes = await fetch(request);
 
     if (request.method === "GET") {
-      const injectedRes = await route(env, request, originRes);
-      if (injectedRes) return injectedRes;
+      try {
+        const injectedRes = await route(env, request, originRes);
+        if (injectedRes) return injectedRes;
+      } catch {
+        return originRes;
+      }
     }
 
     // fallback as plain http proxy
