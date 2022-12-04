@@ -15,3 +15,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN}}
           command: publish --env staging
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
