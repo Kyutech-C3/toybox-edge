@@ -1,4 +1,4 @@
-name: Cloudflare Workers Deploy
+name: Cloudflare Workers Deploy (staging)
 
 on:
   push:
@@ -14,3 +14,4 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN}}
+          command: publish --env staging
